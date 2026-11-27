@@ -363,7 +363,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fafaf8}
 .site-header.home-header .count-badge{background:var(--noir-red);color:#fff}
 .site-header.home-header .mobile-menu{color:#111}
 .noir-home .noir-hero{height:clamp(430px,42vw,570px);min-height:0;max-height:570px}
-.noir-home .noir-hero-image{object-position:center 42%}
+.noir-home .noir-hero-image{object-position:center top}
 .noir-home .noir-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.55) 33%,rgba(0,0,0,.08) 71%),linear-gradient(0deg,rgba(0,0,0,.36),transparent 34%)}
 .noir-home .noir-hero-content{left:6%;top:49%;width:min(620px,56%)}
 .noir-home .noir-kicker{gap:10px;font-size:9px;letter-spacing:.12em}
@@ -447,7 +447,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fafaf8}
  .site-header.home-header .main-nav a.nav-active{color:#b31319}
  .site-header.home-header .main-nav a.nav-active:after{bottom:-7px}
  .noir-home .noir-hero{height:520px;max-height:none}
- .noir-home .noir-hero-image{object-position:62% center}
+ .noir-home .noir-hero-image{object-position:72% center}
  .noir-home .noir-hero-content{left:6%;right:5%;top:48%;width:auto}
  .noir-home .noir-hero h1{font-size:clamp(57px,14vw,78px)}
  .noir-home .noir-hero-copy{max-width:280px;font-size:11px}
