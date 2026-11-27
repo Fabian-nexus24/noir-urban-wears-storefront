@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight, MapPin, MoveUpRight, Sparkles } from "lucide-react"
-import { categories, products } from "@/data/products"
+import { categories, publishedProducts } from "@/data/products"
 import { ProductGrid } from "@/components/products/product-grid"
 
 const categoryImages: Record<string, string> = {
@@ -11,11 +11,10 @@ const categoryImages: Record<string, string> = {
 }
 
 export default function Home() {
-  const newArrivals = products.filter((product) => product.isNew && product.stock === "available").slice(0, 4)
+  const newArrivals = publishedProducts.filter((product) => product.isNew).slice(0, 4)
   const newIds = new Set(newArrivals.map((product) => product.id))
-  const bestSellers = products
-    .filter((product) => product.stock === "available" && !newIds.has(product.id))
-    .sort((a, b) => b.rating - a.rating)
+  const featuredProducts = publishedProducts
+    .filter((product) => product.featured && !newIds.has(product.id))
     .slice(0, 4)
 
   return (
@@ -40,13 +39,13 @@ export default function Home() {
         <span>THIKA TO EVERYWHERE</span><Sparkles /><span>OWN YOUR IDENTITY</span><Sparkles /><span>MOVE DIFFERENT</span><Sparkles /><span>THIKA TO EVERYWHERE</span>
       </div>
 
-      <section className="noir-section noir-arrivals" aria-labelledby="arrivals-title">
+      {newArrivals.length > 0 && <section className="noir-section noir-arrivals" aria-labelledby="arrivals-title">
         <div className="noir-section-heading">
           <div><p className="noir-overline">FRESH FROM THE STUDIO <b>—</b></p><h2 id="arrivals-title">FRESH DROPS.<br className="mobile-break" /> BIGGER VIBES.</h2><p>New pieces for the next version of you.</p></div>
           <Link href="/shop?sort=newest" className="noir-outline-link">VIEW ALL <ArrowUpRight size={16} /></Link>
         </div>
         <ProductGrid products={newArrivals} />
-      </section>
+      </section>}
 
       <section className="noir-categories" id="categories" aria-labelledby="categories-title">
         <div className="noir-section noir-category-inner">
@@ -75,13 +74,13 @@ export default function Home() {
         <span className="noir-campaign-index">THE NOIR ROTATION — 001</span>
       </section>
 
-      <section className="noir-section noir-best" aria-labelledby="best-title">
+      {featuredProducts.length > 0 && <section className="noir-section noir-best" aria-labelledby="best-title">
         <div className="noir-section-heading">
-          <div><p className="noir-overline">THE COMMUNITY PICKS <b>—</b></p><h2 id="best-title">THE EVERYDAY<br className="mobile-break" /> ROTATION.</h2><p>Reliable favourites. Distinctive energy.</p></div>
+          <div><p className="noir-overline">THE NOIR SELECTION <b>—</b></p><h2 id="best-title">THE EVERYDAY<br className="mobile-break" /> ROTATION.</h2><p>Distinctive pieces for your everyday.</p></div>
           <Link href="/shop" className="noir-outline-link">SHOP ALL <ArrowUpRight size={16} /></Link>
         </div>
-        <ProductGrid products={bestSellers} />
-      </section>
+        <ProductGrid products={featuredProducts} />
+      </section>}
 
       <section className="noir-store">
         <div className="noir-store-mark">N<span>.</span></div>
