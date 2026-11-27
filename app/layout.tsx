@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   openGraph: { title: 'NOIR Urban Wears — Wear Your Identity', description: 'Streetwear essentials designed for those who express themselves without limits.', type: 'website' },
 }
-export const viewport: Viewport = { colorScheme: 'light', themeColor: '#fafafa', width: 'device-width', initialScale: 1, userScalable: true }
+export const viewport: Viewport = { colorScheme: 'light', themeColor: '#ffffff', width: 'device-width', initialScale: 1, userScalable: true }
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
  return <html lang="en" data-scroll-behavior="smooth"><body className="antialiased"><CartProvider><SiteLayout>{children}</SiteLayout></CartProvider>{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }
